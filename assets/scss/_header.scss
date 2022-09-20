@@ -1,4 +1,4 @@
-.overlay,
+
 .header__action-btn:not(.nav-open-btn) {
     display: none;
 }
@@ -29,7 +29,7 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: -300px;
             max-width: 300px;
             width: 100%;
             background-color: $phthalo-green-2;
@@ -38,6 +38,43 @@
             z-index: 2;
             transition: 0.25s $cubic-in;
             visibility: hidden;
+
+            &.active {
+                transform: translateX(300px);
+                visibility: visible;
+                transition: 0.5s $cubic-out;
+            }
+
+            &__top {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-block-end: 40px;
+
+                .nav-close-btn {
+                    font-size: 22px;
+                    color: $white;
+
+                    ion-icon {
+                        --ionicon-stroke-width: 100px;
+                    }
+                }
+            }
+
+            &__list {
+                border-block-start: 1px solid $white_10;
+
+                .navbar__item {
+                    border-block-end: 1px solid $white_10;
+
+                    .navbar__link {
+                        color: $white;
+                        font-size: $fs-8;
+                        font-weight: $fw-500;
+                        padding-block: 15px;
+                    }
+                }
+            }
         }
     }
 
@@ -51,6 +88,24 @@
 
     .nav-open-btn {
         color: $satin-sheen-gold;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $black_50;
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+        transition: $transition-1;
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 }
 

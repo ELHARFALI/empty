@@ -1,4 +1,3 @@
-.overlay,
 .header__action-btn:not(.nav-open-btn) {
   display: none;
 }
@@ -30,7 +29,7 @@
 .header .container .navbar {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -300px;
   max-width: 300px;
   width: 100%;
   background-color: hsl(144deg, 51%, 15%);
@@ -40,6 +39,39 @@
   transition: 0.25s cubic-bezier(0.51, 0.03, 0.64, 0.28);
   visibility: hidden;
 }
+.header .container .navbar.active {
+  transform: translateX(300px);
+  visibility: visible;
+  transition: 0.5s cubic-bezier(0.33, 0.85, 0.4, 0.96);
+}
+.header .container .navbar__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  -webkit-margin-after: 40px;
+          margin-block-end: 40px;
+}
+.header .container .navbar__top .nav-close-btn {
+  font-size: 22px;
+  color: hsl(0deg, 0%, 100%);
+}
+.header .container .navbar__top .nav-close-btn ion-icon {
+  --ionicon-stroke-width: 100px;
+}
+.header .container .navbar__list {
+  -webkit-border-before: 1px solid hsla(0deg, 0%, 100%, 0.1);
+          border-block-start: 1px solid hsla(0deg, 0%, 100%, 0.1);
+}
+.header .container .navbar__list .navbar__item {
+  -webkit-border-after: 1px solid hsla(0deg, 0%, 100%, 0.1);
+          border-block-end: 1px solid hsla(0deg, 0%, 100%, 0.1);
+}
+.header .container .navbar__list .navbar__item .navbar__link {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding-block: 15px;
+}
 .header__action-btn {
   font-size: 28px;
 }
@@ -48,6 +80,22 @@
 }
 .header .nav-open-btn {
   color: hsl(49deg, 54%, 43%);
+}
+.header .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: hsla(0deg, 0%, 0%, 0.5);
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+.header .overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 @-webkit-keyframes slideInTop {
