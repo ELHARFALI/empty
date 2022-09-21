@@ -115,6 +115,66 @@
     transform: translateY(0);
   }
 }
+.hero {
+  position: relative;
+  background-color: hsl(144deg, 51%, 15%);
+  color: hsl(0deg, 0%, 100%);
+  text-align: center;
+  padding-block: 200px 250px;
+  z-index: 1;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../assets/images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: luminosity;
+  opacity: 0.15;
+  z-index: -1;
+}
+.hero .container .hero_subtitle {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.hero .container .hero-title {
+  margin-block: 25px 40px;
+}
+.hero .container .btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.hero .container .abs-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  -webkit-animation: flyMove 1.25s ease-in-out infinite alternate;
+          animation: flyMove 1.25s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes flyMove {
+  0% {
+    transform: translate(-50%, 40%);
+  }
+  100% {
+    transform: translate(-50%, 38%);
+  }
+}
+
+@keyframes flyMove {
+  0% {
+    transform: translate(-50%, 40%);
+  }
+  100% {
+    transform: translate(-50%, 38%);
+  }
+}
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -172,7 +232,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   overflow-x: hidden;
-  height: 300vh;
 }
 
 body.active {
@@ -201,4 +260,52 @@ body.active {
 
 .container {
   padding-inline: 15px;
+}
+
+.section {
+  padding-block: 120px;
+}
+
+.h1 {
+  font-size: 4.3rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 5px;
+}
+
+.h2 {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 3.4rem;
+  line-height: 1.3;
+  letter-spacing: -2px;
+}
+
+.btn {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 20px 60px;
+  border: 1px solid;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  border-radius: 500px;
+  transition: 0.25s ease;
+}
+
+.btn-primary,
+.btn-secondary:is(:hover, :focus) {
+  background-color: hsl(49deg, 54%, 43%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+.btn-primary:is(:hover, :focus) {
+  color: hsl(49deg, 54%, 43%);
+  background-color: hsl(0deg, 0%, 100%);
+}
+
+.btn-secondary {
+  color: hsl(143deg, 54%, 9%);
+  background-color: hsl(0deg, 0%, 100%);
 }/*# sourceMappingURL=style.css.map */

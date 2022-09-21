@@ -1,0 +1,60 @@
+
+.hero {
+    position: relative;
+    background-color: $phthalo-green-2;
+    color: $white;
+    text-align: center;
+    padding-block: 200px 250px;
+    z-index: 1;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('../../assets/images/hero-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        mix-blend-mode: luminosity;
+        opacity: 0.15;
+        z-index: -1;
+    }
+
+    .container {
+
+        .hero_subtitle {
+            font-size: $fs-5;
+            font-weight: $fw-500;
+            line-height: 1;
+        }
+
+        .hero-title {
+            margin-block: 25px 40px;
+        }
+
+        .btn-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .abs-img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 40%);
+            animation: flyMove 1.25s ease-in-out infinite alternate;
+        }
+    }
+}
+
+@keyframes flyMove {
+    0% {
+        transform: translate(-50%, 40%);
+    }
+
+    100% {
+        transform: translate(-50%, 38%);
+    }
+}
